@@ -42,14 +42,19 @@ impl GnarkProver {
         let serialized = serde_json::to_string(&constraints).unwrap();
 
         // Write constraints.
-        let mut constraints_file = tempfile::NamedTempFile::new().unwrap();
+        // let mut constraints_file = tempfile::NamedTempFile::new().unwrap();
+        let mut constraints_file = File::create("constraints.json").unwrap();
         constraints_file.write_all(serialized.as_bytes()).unwrap();
 
         // Write witness.
-        let mut witness_file = tempfile::NamedTempFile::new().unwrap();
+        let mut witness_file = File::create("witness.json").unwrap();
+        // let mut witness_file = tempfile::NamedTempFile::new().unwrap();
         let gnark_witness = GnarkWitness::new(witness);
         let serialized = serde_json::to_string(&gnark_witness).unwrap();
         witness_file.write_all(serialized.as_bytes()).unwrap();
+
+        // println!("{:?}", constraints_file.path());
+        // println!("{:?}", witness_file.path());
 
         // test_groth16_bn254(
         //     witness_file.path().to_str().unwrap(),

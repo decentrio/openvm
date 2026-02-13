@@ -43,6 +43,7 @@ pub enum ConstraintOpcode {
     CircuitSelectV,
     CircuitSelectF,
     CircuitSelectE,
+    CircuitExt2Felt,
     AssertEqV,
     AssertEqVI,
     AssertEqF,
