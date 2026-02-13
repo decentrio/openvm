@@ -382,7 +382,7 @@ impl<C: Config + Debug> ConstraintCompiler<C> {
                 }),
                 DslIr::AssertEqVI(a, b) => {
                     constraints.push(Constraint {
-                        opcode: ConstraintOpcode::AssertEqV,
+                        opcode: ConstraintOpcode::AssertEqVI,
                         args: vec![vec![a.id()], vec![b.as_canonical_biguint().to_string()]],
                     });
                 }
@@ -392,7 +392,7 @@ impl<C: Config + Debug> ConstraintCompiler<C> {
                 }),
                 DslIr::AssertEqFI(a, b) => {
                     constraints.push(Constraint {
-                        opcode: ConstraintOpcode::AssertEqF,
+                        opcode: ConstraintOpcode::AssertEqFI,
                         args: vec![vec![a.id()], vec![b.as_canonical_biguint().to_string()]],
                     });
                 }
@@ -402,7 +402,7 @@ impl<C: Config + Debug> ConstraintCompiler<C> {
                 }),
                 DslIr::AssertEqEI(a, b) => {
                     constraints.push(Constraint {
-                        opcode: ConstraintOpcode::AssertEqE,
+                        opcode: ConstraintOpcode::AssertEqEI,
                         args: vec![
                             vec![a.id()],
                             b.as_base_slice()
