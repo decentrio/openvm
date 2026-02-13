@@ -272,7 +272,7 @@ impl<C: Config + Debug> ConstraintCompiler<C> {
                 }),
                 DslIr::MulEI(a, b, c) => {
                     constraints.push(Constraint {
-                        opcode: ConstraintOpcode::MulE,
+                        opcode: ConstraintOpcode::MulEI,
                         args: vec![
                             vec![a.id()],
                             vec![b.id()],
@@ -315,7 +315,7 @@ impl<C: Config + Debug> ConstraintCompiler<C> {
                 }),
                 DslIr::DivEIN(a, b, c) => {
                     constraints.push(Constraint {
-                        opcode: ConstraintOpcode::DivE,
+                        opcode: ConstraintOpcode::DivEIN,
                         args: vec![
                             vec![a.id()],
                             b.as_base_slice()
