@@ -169,11 +169,11 @@ impl<C: Config + Debug> ConstraintCompiler<C> {
                         opcode: ConstraintOpcode::AddEFFI,
                         args: vec![
                             vec![a.id()],
+                            vec![b.id()],
                             c.as_base_slice()
                                 .iter()
                                 .map(|x| x.as_canonical_biguint().to_string())
                                 .collect(),
-                            vec![b.id()],
                         ],
                     });
                 }
